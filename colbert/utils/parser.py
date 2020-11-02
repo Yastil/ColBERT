@@ -90,7 +90,10 @@ class Arguments():
     def check_arguments(self, args):
         for check in self.checks:
             check(args)
-
+    
+    def argumentparse(self, *args):
+        return self.parser.parse_args([*args])
+    
     def parse(self):
         args = self.parser.parse_args()
         self.check_arguments(args)
