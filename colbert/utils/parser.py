@@ -92,10 +92,11 @@ class Arguments():
             check(args)
     
     def argumentparse(self, *args):
-        return self.parser.parse_args([*args])
+        args1 = self.parser.parse_args([*args])
+        return args1
     
-    def parse(self):
-        args = self.parser.parse_args()
+    def parse(self, args1):
+        args = self.parser.parse_args(args1)
         self.check_arguments(args)
 
         args.input_arguments = copy.deepcopy(args)
