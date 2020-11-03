@@ -90,13 +90,9 @@ class Arguments():
     def check_arguments(self, args):
         for check in self.checks:
             check(args)
-    
-    def argumentparse(self, *args):
-        args1 = self.parser.parse_args([*args])
-        return args1
-    
-    def parse(self, args1):
-        args = self.parser.parse_args(args1)
+            
+    def parse(self):
+        args = self.parser.parse_args(["--checkpoint", "gs://cloud-tpu-checkpoints/bert/uncased_L-12_H-768_A-12", "--collection", "/content/drive/My Drive/Colab Notebooks/OBJECTIVE 2/doc_file.tsv", "--index_root", "/content/drive/My Drive/Colab Notebooks/OBJECTIVE 2", "--index_name", "Index.txt"])
         self.check_arguments(args)
 
         args.input_arguments = copy.deepcopy(args)
