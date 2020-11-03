@@ -95,7 +95,7 @@ class Arguments():
         return self.parser.parse_args([*args])
     
     def parse(self):
-        args, unknown = self.parser.parse_known_args()
+        args = self.parser.parse_args()
         self.check_arguments(args)
 
         args.input_arguments = copy.deepcopy(args)
