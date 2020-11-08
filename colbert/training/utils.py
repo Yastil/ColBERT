@@ -15,14 +15,15 @@ def manage_checkpoints(args, colbert, optimizer, batch_idx):
     arguments = args.input_arguments.__dict__
 
     path = os.path.join(Run.path, 'checkpoints')
+    ckpt_save_path = "/content/drive/My Drive/colBERT"
 
     if not os.path.exists(path):
         os.mkdir(path)
 
     if batch_idx % 2000 == 0:
-        name = os.path.join(path, "colbert.dnn")
+        name = os.path.join(ckpt_save_path, "colbert.dnn")
         save_checkpoint(name, 0, batch_idx, colbert, optimizer, arguments)
 
     if batch_idx in SAVED_CHECKPOINTS:
-        name = os.path.join(path, "colbert-{}.dnn".format(batch_idx))
+        name = os.path.join(ckpt_save_path, "colbert-{}.dnn".format(batch_idx))
         save_checkpoint(name, 0, batch_idx, colbert, optimizer, arguments)
