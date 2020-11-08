@@ -1,4 +1,5 @@
 import os
+import json
 import ujson
 
 from functools import partial
@@ -35,7 +36,7 @@ class LazyBatcher():
         with open(path) as f:
             for line_idx, line in enumerate(f):
                 if line_idx % nranks == rank:
-                    qid, pos, neg = ujson.loads(line)
+                    qid, pos, neg = json.loads(line)
                     triples.append((qid, pos, neg))
 
         return triples
