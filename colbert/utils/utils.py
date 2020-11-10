@@ -55,7 +55,7 @@ def load_checkpoint(path, model, optimizer=None, do_print=True):
 
     checkpoint = torch.load(path, map_location='cpu')
 
-    state_dict = torch.load_state_dict(checkpoint['model_state_dict'], strict=False)
+    state_dict = checkpoint['model_state_dict']
     new_state_dict = OrderedDict()
     for k, v in state_dict.items():
         name = k
