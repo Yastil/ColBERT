@@ -118,7 +118,7 @@ class CollectionEncoder():
         batch = []
 
         for line_idx, line in zip(range(offset, endpos), lines):
-            line_parts = line.strip().split('\t')
+            line_parts = line.rstrip().split('\t')
 
             pid, passage, *other = line_parts
 
